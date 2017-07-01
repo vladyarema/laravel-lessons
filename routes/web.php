@@ -15,6 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('page/', function () {
-    return view('page');
+Route::get('/page', function () {
+    echo '<pre>';
+    //print_r($_ENV);
+    //echo config('app.php.locale');
+    //echo Config::set('app.locale', "ru");
+    //echo Config::get('app.locale');
+    echo env("APP_ENV");
+    echo '</pre>';
+});
+
+
+Route::post('/test', function () {
+    echo "привет мир!";
 });
