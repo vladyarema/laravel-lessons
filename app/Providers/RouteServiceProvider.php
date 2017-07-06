@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -21,10 +22,11 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Router $router)
     {
         //
-
+        //$router->pattern('id','[0-9]+');
+        $router->patterns(['id'=>'[0-9]+', 'cat'=>'[A-Za-z]+']);
         parent::boot();
     }
 
