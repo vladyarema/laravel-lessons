@@ -16,7 +16,11 @@ Route::get('/', ['as'=>'home',function () {
 }]);
 
 Route::get('/about/{id}', 'Dir\FirstController@show');
-Route::get('/articles', 'admin\core@getPages');
+
+Route::get('/articles', ['uses'=>'admin\core@getArticles', 'as'=>'article']);
+Route::get('/articles/{id}', ['uses'=>'admin\core@getArticle', 'as'=>'article']);
+
+Route::resource('/pages',"admin\coreResourse");
 //Route::get('/page/{$id}/{$cat}', function ($id) {
 //    echo '<pre>';
 //    //print_r($_ENV);
